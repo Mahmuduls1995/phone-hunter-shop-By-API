@@ -8,7 +8,7 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="bg-gray">
 
     <h2 class="text-center text-success">Search Latest Smartphone </h2>
     <div class="input-group mb-3 w-50 mx-auto">
@@ -20,13 +20,31 @@
                 <option selected>Choose...</option>
                 <option type="text">Iphone</option>
                 <option type="text">Oppo</option>
-                <option type="text" >samsung</option>
-                <option type="text">huawei</option>
+                <option type="text" >Samsung</option>
+                <option type="text">Huawei</option>
             </select>
 
         <button onclick="searchPhones()" class="btn btn-outline-secondary" type="button"
             id="button-search">search</button>
     </div>
+
+    <div>
+        <p id="error-message" class=" text-danger text-center">Something went wrong please try again later</p>
+    </div>
+
+    <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4">
+        <!-- <div class="col">
+            <div class="card">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div> -->
+    </div>
+
+
+
 
     <script src="./js/index.js"></script>
 </body>
