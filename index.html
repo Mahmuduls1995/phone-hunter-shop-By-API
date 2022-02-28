@@ -10,8 +10,23 @@
 </head>
 <body>
 
-    <h2 class="text-center text-success">Search Latest Phone </h2>
+    <h2 class="text-center text-success">Search Latest Smartphone </h2>
+    <div class="input-group mb-3 w-50 mx-auto">
+        <!-- <input id="search-field" type="text" 
+        class="form-control" 
+        placeholder="Search the food you want"aria-label="Recipient's username" aria-describedby="button-addon2"> -->
 
+            <select class="form-control" id="search-field"  type="text" aria-label="Example select with button addon">
+                <option selected>Choose...</option>
+                <option type="text">Iphone</option>
+                <option type="text">Oppo</option>
+                <option type="text" >samsung</option>
+                <option type="text">huawei</option>
+            </select>
+
+        <button onclick="searchPhones()" class="btn btn-outline-secondary" type="button"
+            id="button-search">search</button>
+    </div>
 
     <script src="./js/index.js"></script>
 </body>
