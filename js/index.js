@@ -14,7 +14,6 @@ const searchPhones=()=>{
         .then(response=>response.json())
         .then(data=>displaySearchResult(data.data))
         .catch(error=>displayError(error))
-    
     }
 }
 
@@ -24,10 +23,10 @@ const displayError=(error)=>{
 
 const displaySearchResult=phones=>{
     const searchResult= document.getElementById("search-result");
+
     searchResult.textContent= '';
     if (phones.length == 0) {
         document.getElementById('error-message').style.display = 'block';
-        
     }
     const first20Phones = phones.slice(0,20);
    
@@ -56,10 +55,14 @@ const displaySearchResult=phones=>{
     <h3 class="text-center">Total: ${first20Phones.length}</h3>
     `
     searchResult.appendChild(h3);
+    const searchDetailResult= document.getElementById("detail-result");
+    searchDetailResult.textContent = ' ';
 
 }
 
 const detailsPhones=id => {
+    const searchDetailResult= document.getElementById("detail-result");
+    searchDetailResult.textContent =' ';
     const url=`https://openapi.programming-hero.com/api/phone/${id}`
     fetch(url)
     .then(response => response.json())
@@ -67,9 +70,9 @@ const detailsPhones=id => {
 }
 
 const detailsResult=details=>{
-
-    const searchResult= document.getElementById("detail-result");
    
+    const searchDetailResult= document.getElementById("detail-result");
+    
     const div = document.createElement('div');
         
         div.classList.add('col')
@@ -82,22 +85,21 @@ const detailsResult=details=>{
            
             <h4 class="card-title">${details.releaseDate?details.releaseDate:'Not Released Now'}</h4>
             <ul class="list-group list-group-flush">
-                    <li class="list-group-item text-primary">Storage: ${details.mainFeatures.storage}</li>
-                    <li class="list-group-item text-primary">ChipSet: ${details.mainFeatures.chipSet}</li>
-                    <li class="list-group-item text-primary">DisplaySize: ${details.mainFeatures.displaySize}</li>
-                    <li class="list-group-item text-primary">Memory: ${details.mainFeatures.memory}</li>
-                    <li class="list-group-item text-primary">Others: ${Object.entries(details.others)}</li>
-                    <li class="list-group-item text-primary">Sensors: ${details?.mainFeatures?.sensors}</li>
+                    <li class="list-group-item text-primary"><span class="text-dark">Storage:</span>${details.mainFeatures.storage}
+                    </li>
+                    <li class="list-group-item text-primary"><span class="text-dark">Memory:</span>${details.mainFeatures.memory}</li>
+                    <li class="list-group-item text-primary"><span class="text-dark">DisplaySize:</span>
+                    ${details.mainFeatures.displaySize}</li>
+                    <li class="list-group-item text-primary"><span class="text-dark">ChipSet:</span>${details.mainFeatures.chipSet}</li>
+                    <li class="list-group-item text-primary"><span class="text-dark">Others Feature:</span>
+                    ${Object.entries(details.others)}</li>
+                    <li class="list-group-item text-primary"><span class="text-dark">Sensors:</span>${details.mainFeatures.sensors}</li>
 
             </ul>
-           
-            <h4 class="card-title" ></h4>
-            
         </div>
         </div>
         `
-        searchResult.appendChild(div);
-
+        searchDetailResult.appendChild(div);
 }
 
 
