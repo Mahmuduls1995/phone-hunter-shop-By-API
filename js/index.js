@@ -1,12 +1,16 @@
 document.getElementById("error-message").style.display="none";
 
+
  /*Search Result Found Code*/
 
 const searchPhones=()=>{
     const searchField=document.getElementById("search-field");
+
     const searchText=searchField.value;
     searchField.value=" ";
     document.getElementById('error-message').style.display = 'none'
+
+
     if (searchText== " ") {
         alert("Please Select something");
     }
@@ -55,7 +59,9 @@ const displaySearchResult=phones=>{
             `
             searchResult.appendChild(div);
        
+            
     })
+   
 
     const h3=document.createElement('h3');
     h3.innerHTML=`
@@ -64,14 +70,15 @@ const displaySearchResult=phones=>{
     `
     searchResult.appendChild(h3);
 
+
     const searchDetailResult= document.getElementById("detail-result");
     searchDetailResult.textContent = ' ';
 
 }
-
         //Details Result Code
 
 const detailsPhones=id => {
+   
     const searchDetailResult= document.getElementById("detail-result");
     searchDetailResult.textContent =' ';
     const url=`https://openapi.programming-hero.com/api/phone/${id}`
@@ -84,8 +91,8 @@ const detailsResult=details=>{
    
     const searchDetailResult= document.getElementById("detail-result");
     console.log(details.others.Bluetooth);
+    
     const div = document.createElement('div');
-        
         div.classList.add('col')
 
         div.innerHTML=`
@@ -93,7 +100,6 @@ const detailsResult=details=>{
         <img src="${details.image}" class="card-img-top img-fluid" alt="...">
         <div class="card-body">
             <h2 class="card-title">${details.name}</h2>
-           
             <h4 class="card-title">${details.releaseDate?details.releaseDate:'No Released Data Found'}</h4>
             <ul class="list-group list-group-flush">
                     <li class="list-group-item text-primary"><span class="text-dark">Storage:</span>${details.mainFeatures.storage}
@@ -111,6 +117,3 @@ const detailsResult=details=>{
         `
         searchDetailResult.appendChild(div);
 }
-
-
-
