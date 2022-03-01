@@ -17,32 +17,37 @@
 
 <body class="bg-gray">
 
-  <h2 class="text-center text-success">Search Latest Smartphone </h2>
+  <h2 class="text-center p-3 text-success">Debidwar Smartphone Shop </h2>
   <div class="input-group mb-3 w-50 mx-auto">
   
     <input type="text" id="search-field" placeholder="Choose your Favorite Phone" class="bg-light form-control"
       list="datalistOptions" aria-label="Example select with button addon" />
     <datalist id="datalistOptions">
-      <option type="text">Iphone</option>
-      <option type="text">Oppo</option>
       <option type="text">Samsung</option>
+      <option type="text">Oppo</option>
       <option type="text">Huawei</option>
+      <option type="text">Iphone</option>
     </datalist>
 
     <button onclick="searchPhones()" class="btn btn-outline-secondary" type="button" id="button-search">search</button>
   </div>
   <!-- Display Details Show -->
-  <div id="detail-result" class="row m-3 row-cols-1  row-cols-md-3 g-4">
 
-
-  </div>
-
-
-  <div >
-    <p id="error-message" class="w-75 bold text-danger text-center mx-5 shadow p-3 bg-body rounded">No Result Found My Data</p>
-  </div>
-  <!-- Display Result show -->
+  <div id="detail-result" class="w-50 mx-auto">
+    <div  class="row m-3 row-cols-1  row-cols-md-3 g-4">
   
+    </div>
+  </div>
+    
+      <!-- Error Handling -->
+
+  <div>
+    <p id="error-message" class="w-75 bold text-danger text-center mx-5 shadow p-3 bg-body rounded">No Result Found Your Data</p>
+  </div>
+
+
+  <!-- Search Result show -->
+
   <div id="search-result" class="row row-cols-1 m-3 text-center row-cols-md-3 g-4">
 
   </div>

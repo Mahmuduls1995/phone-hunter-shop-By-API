@@ -1,5 +1,7 @@
 document.getElementById("error-message").style.display="none";
 
+ /*Search Result Found Code*/
+
 const searchPhones=()=>{
     const searchField=document.getElementById("search-field");
     const searchText=searchField.value;
@@ -17,21 +19,27 @@ const searchPhones=()=>{
     }
 }
 
+        /*Error Result  Code*/
+
 const displayError=(error)=>{
     document.getElementById('error-message').style.display = 'block';
 }
+  
+            /*Display Result Found Code*/
 
 const displaySearchResult=phones=>{
     const searchResult= document.getElementById("search-result");
 
     searchResult.textContent= '';
+    
     if (phones.length == 0) {
         document.getElementById('error-message').style.display = 'block';
     }
     const first20Phones = phones.slice(0,20);
-   
+    
+    
     first20Phones.forEach(phone=>{
-        
+      
         const div = document.createElement('div');
         
         div.classList.add('col')
@@ -52,13 +60,16 @@ const displaySearchResult=phones=>{
     const h3=document.createElement('h3');
     h3.innerHTML=`
     <br>
-    <h3 class="text-center">Total: ${first20Phones.length}</h3>
+    <h3 class="text-center">Total ${phones.length} Result found</h3>
     `
     searchResult.appendChild(h3);
+
     const searchDetailResult= document.getElementById("detail-result");
     searchDetailResult.textContent = ' ';
 
 }
+
+        //Details Result Code
 
 const detailsPhones=id => {
     const searchDetailResult= document.getElementById("detail-result");
@@ -72,18 +83,18 @@ const detailsPhones=id => {
 const detailsResult=details=>{
    
     const searchDetailResult= document.getElementById("detail-result");
-    
+    console.log(details.others.Bluetooth);
     const div = document.createElement('div');
         
         div.classList.add('col')
 
         div.innerHTML=`
         <div class="card h-100 p-4 bg-secondary shadow bg-body rounded ">
-        <img height="350px" src="${details.image}" class="card-img-top" alt="...">
+        <img src="${details.image}" class="card-img-top img-fluid" alt="...">
         <div class="card-body">
             <h2 class="card-title">${details.name}</h2>
            
-            <h4 class="card-title">${details.releaseDate?details.releaseDate:'Not Released Now'}</h4>
+            <h4 class="card-title">${details.releaseDate?details.releaseDate:'No Released Data Found'}</h4>
             <ul class="list-group list-group-flush">
                     <li class="list-group-item text-primary"><span class="text-dark">Storage:</span>${details.mainFeatures.storage}
                     </li>
@@ -94,7 +105,6 @@ const detailsResult=details=>{
                     <li class="list-group-item text-primary"><span class="text-dark">Others Feature:</span>
                     ${Object.entries(details.others)}</li>
                     <li class="list-group-item text-primary"><span class="text-dark">Sensors:</span>${details.mainFeatures.sensors}</li>
-
             </ul>
         </div>
         </div>
